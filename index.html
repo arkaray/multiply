@@ -16,5 +16,13 @@
 	};
 	</script>
 	<script src="multiply.js"></script>
+	<button onclick="printXY(event)">Click</button>
+	<script>
+		function printXY(e){
+			x=e.clientX;
+			y=e.clientY;
+			Module.print(x+"*"+y+"="+Module._multiply(x,y));
+		}
+	</script>
 </body>
 </html>
