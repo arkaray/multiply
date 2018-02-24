@@ -13,6 +13,9 @@
 		'printErr': function (text) {
 			output("printErr\n" + text);
 		},
+		'onRuntimeInitialized': function(){
+			Module._multiply(100, 200);
+		}
 	};
 	</script>
 	<script src="multiply.js"></script>
