@@ -1,4 +1,9 @@
 #include <iostream>
+extern "C" {
+	int multiply(float x,float y){
+		return x*y;
+	}
+}
 
 int main(){
 	std::cout << "initialized\n";
