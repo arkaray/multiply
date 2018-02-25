@@ -20,19 +20,26 @@
 		'printErr': function (text) {
 			output("printErr\n" + text);
 		},
-		'onRuntimeInitialized': function(){
-			Module._multiply(100, 200);
-		}
 	};
+	var loading = new Promise(function(resolve, reject) {
+		Module['onRuntimeInitialized'] = function(){
+			resolve("done");
+		};
+	});
 	</script>
 	<script src="multiply.js"></script>
 	<button onclick="printXY(event)">Click</button>
 	<script>
-		function printXY(e){
+		async function printXY(e){
+			await loading;
 			x=e.clientX;
 			y=e.clientY;
 			Module.print(x+"*"+y+"="+Module._multiply(x,y));
 		}
+	</script>
+
+	<script>
+		document.getElementsByTagName('button')[0].click();
 	</script>
 </body>
 </html>
